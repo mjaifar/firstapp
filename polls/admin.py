@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Question, Choice
+from .models import Question, Choice, Subscriber, List
 
 
 
@@ -18,3 +18,5 @@ class QuestionAdmin(admin.ModelAdmin):
 #Register the models here.
 admin.site.register(Question, QuestionAdmin)
 admin.site.register(Choice)
+admin.site.register(Subscriber)
+admin.site.register(List)

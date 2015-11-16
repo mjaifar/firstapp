@@ -19,6 +19,7 @@ class Question(models.Model):
     was_published_recently.boolean = True
     was_published_recently.short_description = 'Published recently ?'
 
+
 class Choice(models.Model):
     choice_text = models.CharField(max_length=200)
     votes = models.IntegerField(default=0)
@@ -26,3 +27,16 @@ class Choice(models.Model):
 
     def __str__(self):
         return self.choice_text
+
+
+class Subscriber(models.Model):
+    email = models.CharField(max_length=255)
+    firstname = models.CharField(max_length=63)
+    lastname = models.CharField(max_length=63)
+    date_added = models.DateTimeField('date_added')
+
+class List(models.Model):
+    name = models.CharField(max_length=255)
+    subscribers = models.ManyToManyField(Subscriber)
+    date_created = models.DateTimeField('date_created')
+
